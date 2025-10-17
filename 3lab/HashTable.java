@@ -1,7 +1,6 @@
 import java.util.LinkedList;
 
 public class HashTable<K, V> {
-    // Вложенный класс для хранения пар ключ-значение
     private static class Entry<K, V> {
         private K key;
         private V value;
@@ -16,23 +15,20 @@ public class HashTable<K, V> {
         public void setValue(V value) { this.value = value; }
     }
 
-    private LinkedList<Entry<K, V>>[] table; // массив цепочек
-    private int capacity; // ёмкость таблицы
-    private int size; // количество элементов
+    private LinkedList<Entry<K, V>>[] table;
+    private int capacity;
+    private int size;
 
-    // Конструктор
     public HashTable(int capacity) {
         this.capacity = capacity;
         this.table = new LinkedList[capacity];
         this.size = 0;
     }
 
-    // Хэш-функция
     private int hash(K key) {
-        return Math.abs(key.hashCode() % capacity);
+        return Math.abs(key.hashCode()) % capacity;
     }
 
-    // Добавление пары (ключ, значение)
     public void put(K key, V value) {
         int index = hash(key);
         if (table[index] == null) {
@@ -41,7 +37,7 @@ public class HashTable<K, V> {
 
         for (Entry<K, V> entry : table[index]) {
             if (entry.getKey().equals(key)) {
-                entry.setValue(value); // обновление значения
+                entry.setValue(value);
                 return;
             }
         }
@@ -50,7 +46,6 @@ public class HashTable<K, V> {
         size++;
     }
 
-    // Получение значения по ключу
     public V get(K key) {
         int index = hash(key);
         if (table[index] == null) return null;
@@ -63,7 +58,6 @@ public class HashTable<K, V> {
         return null;
     }
 
-    // Удаление по ключу
     public void remove(K key) {
         int index = hash(key);
         if (table[index] == null) return;
@@ -82,17 +76,14 @@ public class HashTable<K, V> {
         }
     }
 
-    // Количество элементов
     public int size() {
         return size;
     }
 
-    // Проверка на пустоту
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // Для удобного вывода таблицы
     public void printTable() {
         for (int i = 0; i < capacity; i++) {
             System.out.print(i + ": ");
