@@ -10,6 +10,7 @@ public class DivisionTest {
             System.out.println(a / b);
         } catch (CustomDivisionException e) {
             System.out.println("Ошибка: " + e.getMessage());
+            ExceptionLogger.log(e);
         }
     }
 }

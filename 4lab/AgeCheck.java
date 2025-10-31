@@ -10,6 +10,7 @@ public class AgeCheck {
             System.out.println("Возраст корректен");
         } catch (CustomAgeException e) {
             System.out.println("Ошибка: " + e.getMessage());
+            ExceptionLogger.log(e);
         }
     }
 }

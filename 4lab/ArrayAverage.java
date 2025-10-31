@@ -10,8 +10,10 @@ public class ArrayAverage {
             System.out.println("Среднее: " + avg);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Ошибка: выход за границы массива");
+            ExceptionLogger.log(e);
         } catch (Exception e) {
             System.out.println("Ошибка: " + e.getMessage());
+            ExceptionLogger.log(e);
         }
     }
 }

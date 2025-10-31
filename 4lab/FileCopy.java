@@ -11,8 +11,10 @@ public class FileCopy {
             System.out.println("Файл успешно скопирован");
         } catch (FileNotFoundException e) {
             System.out.println("Ошибка: файл не найден");
+            ExceptionLogger.log(e);
         } catch (IOException e) {
             System.out.println("Ошибка ввода-вывода: " + e.getMessage());
+            ExceptionLogger.log(e);
         }
     }
 }
