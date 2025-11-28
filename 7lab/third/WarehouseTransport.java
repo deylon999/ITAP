@@ -57,8 +57,11 @@ class Loader extends Thread {
     }
 
     private void deliverGoods(List<Product> products) {
-        System.out.println(getName() + " отправляется с грузом весом " +
-                products.stream().mapToInt(Product::getWeight).sum() + " кг.");
+        int totalSum = 0;
+        for (Product product : products) {
+            totalSum += product.getWeight();
+        }
+        System.out.println(getName() + " отправляется с грузом весом " + totalSum);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
