@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MaxInMatrix {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         int[][] matrix = {
                 {3, 5, 9, 1},
                 {8, 7, 2, 4},
